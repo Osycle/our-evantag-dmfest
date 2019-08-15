@@ -73,6 +73,13 @@ main{
 			width: 100%;
 		}
 	}
+	.img-content{
+		&:before{
+			@extend .clafclear;
+			border-radius: 40px;
+			background: linear-gradient(to top right, #40c4ff, #8671fb);
+		}
+	}
 	&.imgs{
 		position: absolute;
 		//height: 680px;
@@ -81,11 +88,13 @@ main{
 		right: 70px;
 		width: 860px;
 		.img-wrapper{
-			border: 30px solid white;
-			border-radius: 40px;
-			background-color: white;
+			border: 30px solid transparent;
+			//padding: 30px;
+			border-radius: 62px;
+			//background-color: white;
 			position: relative;
 			overflow: hidden;
+
 		}
 		.img{
 			border-radius: 33px;
@@ -100,8 +109,22 @@ main{
 			top: 0;
 			z-index: 0;
 			left: 0;
+			border-radius: 33px;
 			filter: blur(20px);
 			transform: scale(1.5);
+		}
+		&.style-2{
+			background-color: transparent;
+			border-radius: 62px;
+			.img-wrapper{
+				padding: 30px;
+				border: none;
+			}
+			.img-content{
+				&:before{
+					display: none;
+				}
+			}
 		}
 	}
 }
@@ -114,6 +137,10 @@ main{
 		float: right;
 		right: 90px;
 		bottom: 50px;
+		img{
+			//@extend .filter-white;
+			width: 283px;
+		}
 	}
 }
 .description{
@@ -125,6 +152,23 @@ main{
 		text-align: center;
 		font-weight: 600;
 		font-size: 52px;
+		position: relative;
+		z-index: 1;
+		[class*="arrow"]{
+			position: absolute;
+			&.arrow-upload{
+				left: -5px;
+				top: 0;
+				width: 65px;
+			}
+			&.arrow-deg{
+				right: 20px;
+				z-index: -1;
+				bottom: -65px;
+				width: 162px;
+			}
+
+		}
 		i{
 			b{
 				font-size: 62px;
@@ -188,7 +232,7 @@ main{
 }
 .person-info{
 	display: flex;
-	background-color: $color-1;
+	background-color: transparent;
 	text-align: center;
 	min-height: 130px;
 	position: absolute;
@@ -203,6 +247,7 @@ main{
 	align-items: center;
 }
 .person-img{
+	display: none;
 	img{
 		border-radius: 50%;
 		width: 90px;
@@ -213,11 +258,13 @@ main{
 	}
 }
 .person-name{
-	font-family: $font-family-2;
-	font-size: em(44);
+	font-family: $font-family-1;
+	font-size: 75px;
+	text-transform: uppercase;
 	line-height: 130%;
+	color: $color-1;
 	font-weight: 600;
-	margin-left: 30px;
+	//margin-left: 30px;
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	overflow: hidden;
